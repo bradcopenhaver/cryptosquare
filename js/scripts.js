@@ -6,12 +6,14 @@ $(document).ready(function() {
     $("#output").text(outputString);
   });
 });
+
+var encoder = function(input) {
+
 var inputArray = [];
 var gridArray = [];
 var encryptedArray =[];
 var outputArray= [];
-
-var encoder = function(input) {
+  
 for (i=0;i<input.length; i++) {
   if (/[a-z0-9]/i.test(input.charAt(i))) {
   inputArray.push((input[i]).toLowerCase());
