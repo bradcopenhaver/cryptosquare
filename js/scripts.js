@@ -8,6 +8,7 @@ $(document).ready(function() {
 });
 var inputArray = [];
 var gridArray = [];
+var outputArray= [];
 var encoder = function(input) {
 var lowerString = input.toLowerCase();
   for (i=0;i<lowerString.length; i++) {
@@ -22,7 +23,20 @@ var lowerString = input.toLowerCase();
     gridArray.push(inputArray.slice(i , i + subArrayLength));
   }
 
-  return inputArray.join("");
+  for (i=0; i<subArrayLength; i++) {
+    for (j=0; j < gridArray.length; j++) {
+      outputArray.push(gridArray[j][i]);
+    }
+  }
+  var encryptedString = outputArray.join("");
+  var encryptedArray =[];
+  for (i=0; i < encryptedString.length; i+=5) {
+    encryptedArray.push(encryptedString.slice(i, i+5));
+    console.log(encryptedArray);
+  }
+
+
+  return encryptedArray.join(" ");
 };
 
 var gridSize = function(length) {
